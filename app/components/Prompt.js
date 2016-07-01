@@ -1,6 +1,13 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 
 var Prompt = React.createClass({
+  propTypes: {
+      header: PropTypes.string.isRequired,
+      onUpdateUser: PropTypes.func.isRequired,
+      onSubmitUser: PropTypes.func.isRequired,
+      username: PropTypes.string.isRequired
+  },
   render: function() {
     return (
       <div>
