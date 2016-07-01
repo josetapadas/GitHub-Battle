@@ -1,5 +1,7 @@
 var React = require('react');
 
+var Prompt = require('../components/Prompt');
+
 var PromptContainer = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
@@ -9,12 +11,12 @@ var PromptContainer = React.createClass({
       username: ''
     };
   },
-  onUpdateUser: function(e) {
+  handleUpdateUser: function(e) {
     this.setState({
       username: e.target.value
     });
   },
-  onSubmitUser: function(e) {
+  handleSubmitUser: function(e) {
     e.preventDefault();
 
     var username = this.state.username;
@@ -37,24 +39,11 @@ var PromptContainer = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <h2>{this.props.route.header}</h2>
-        <form onSubmit={this.onSubmitUser}>
-          <div>
-            <input
-              placeholder="GitHub username"
-              type="text"
-              value={this.state.username}
-              onChange={this.onUpdateUser}/>
-          </div>
-          <div>
-            <button
-              type="submit">
-              Continue
-            </button>
-          </div>
-        </form>
-      </div>
+      <Prompt
+        onSubmitUser={this.handleSubmitUser}
+        onUpdateUser={this.handleUpdateUser}
+        header={this.props.route.header}
+        username={this.state.username}/>
     );
   }
 });
