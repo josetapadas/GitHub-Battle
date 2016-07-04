@@ -35,7 +35,7 @@ var PreviewBattleContainer = React.createClass({
       <PreviewBattle
         isLoading={this.state.isLoading}
         playersInfo={this.state.playersInfo}
-        onBattleInit={this.state.handleBattleInit}/>
+        onBattleInit={this.handleBattleInit}/>
     );
   }
 });

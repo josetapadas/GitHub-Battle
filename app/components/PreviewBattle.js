@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
+var Link = require('react-router').Link;
 
 function puke(object) {
   return <pre>{JSON.stringify(object, null, ' ')}</pre>
@@ -42,6 +43,21 @@ function PreviewBattle(props) {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mui-col-md-6">
+          <Link to="/playerOne">
+            <button
+              className="mui-btn mui-btn--danger">
+              &lt; Reset
+            </button>
+          </Link>
+        </div>
+        <div className="mui-col-md-6">
+          <button
+            className="mui-btn mui-btn--primary"
+            onClick={props.onBattleInit}>
+            Fight! &gt;
+          </button>
         </div>
       </div>
     );
