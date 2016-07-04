@@ -4,23 +4,28 @@ var PropTypes = React.PropTypes;
 // stateless function component
 function Prompt(props) {
   return (
-    <div>
-      <h2>{props.header}</h2>
-      <form onSubmit={props.onSubmitUser}>
-        <div>
-          <input
-            placeholder="GitHub username"
-            type="text"
-            value={props.username}
-            onChange={props.onUpdateUser}/>
-        </div>
-        <div>
-          <button
-            type="submit">
-            Continue
-          </button>
-        </div>
-      </form>
+    <div className="mui-row">
+      <div className="mui-col-md-12">
+        <h1>{props.header}</h1>
+      </div>
+      <div className="mui-col-md-12">
+        <form onSubmit={props.onSubmitUser}>
+          <div className="mui-textfield">
+            <input
+              placeholder="GitHub username"
+              type="text"
+              value={props.username}
+              onChange={props.onUpdateUser}/>
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="mui-btn mui-btn--primary">
+              Continue >
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

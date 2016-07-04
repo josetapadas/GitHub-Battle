@@ -22,11 +22,20 @@ var PreviewBattleContainer = React.createClass({
       });
     }.bind(this));
   },
+  handleBattleInit: function() {
+    this.context.router.push({
+      pathname: '/results',
+      state: {
+        playersInfo: this.state.playersInfo
+      }
+    });
+  },
   render: function() {
     return (
       <PreviewBattle
         isLoading={this.state.isLoading}
-        playersInfo={this.state.playersInfo}/>
+        playersInfo={this.state.playersInfo}
+        onBattleInit={this.state.handleBattleInit}/>
     );
   }
 });
