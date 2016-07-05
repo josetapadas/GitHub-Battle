@@ -2,6 +2,9 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var Link = require('react-router').Link;
 
+var UserDetails = require('./UserDetails');
+var UserDetailsWrapper = require('./UserDetailsWrapper');
+
 function puke(object) {
   return <pre>{JSON.stringify(object, null, ' ')}</pre>
 }
@@ -22,28 +25,16 @@ function PreviewBattle(props) {
         </div>
         <div className="mui-col-md-12">
           <div className="mui-row">
-            <div className="mui-col-md-6">
-              <div className="mui-row">
-                <div className="mui-col-md-12">
-                  <h2>Player #1</h2>
-                </div>
-                <div className="mui-col-md-12">
-                  {puke(props.playersInfo[0])}
-                </div>
-              </div>
-            </div>
-            <div className="mui-col-md-6">
-              <div className="mui-row">
-                <div className="mui-col-md-12">
-                  <h2>Player #2</h2>
-                </div>
-                <div className="mui-col-md-12">
-                  {puke(props.playersInfo[1])}
-                </div>
-              </div>
-            </div>
+            <UserDetailsWrapper colWidth='6' header='Player One'>
+              <UserDetails info={props.playersInfo[0]} />
+            </UserDetailsWrapper>
+
+            <UserDetailsWrapper colWidth='6' header='Player Two'>
+              <UserDetails info={props.playersInfo[1]} />
+            </UserDetailsWrapper>
           </div>
         </div>
+
         <div className="mui-col-md-6">
           <Link to="/playerOne">
             <button
